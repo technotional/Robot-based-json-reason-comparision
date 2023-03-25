@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230325 13:33:53.412" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="c:\D Drive\Projects\Robot with Python\test.robot">
+<test id="s1-t1" name="Compare Json" line="7">
+<kw name="Create Session">
+<arg>mysession</arg>
+<arg>https://www.metaweather.com</arg>
+<arg>{}</arg>
+<arg>{}</arg>
+<arg>${None}</arg>
+<arg>${None}</arg>
+<arg>${None}</arg>
+<arg>${False}</arg>
+<arg>0</arg>
+<arg>3</arg>
+<arg>0.1</arg>
+<arg>0</arg>
+<arg>[]</arg>
+<arg>[]</arg>
+<msg timestamp="20230325 13:33:53.491" level="FAIL">No keyword with name 'Create Session' found.</msg>
+<status status="FAIL" starttime="20230325 13:33:53.490" endtime="20230325 13:33:53.494"/>
+</kw>
+<kw name="GET On Session">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/api/location/search/</arg>
+<arg>params=query=london</arg>
+<status status="NOT RUN" starttime="20230325 13:33:53.501" endtime="20230325 13:33:53.502"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Status Should Be</arg>
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.503" endtime="20230325 13:33:53.503"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${json1}</var>
+<arg>C:/D Drive/Projects/Robot with Python/test.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.504" endtime="20230325 13:33:53.504"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${json2}</var>
+<arg>C:/D Drive/Projects/Robot with Python/test2.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.506" endtime="20230325 13:33:53.506"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json1_dict}</var>
+<arg>json.loads('''${json1}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.507" endtime="20230325 13:33:53.508"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json2_dict}</var>
+<arg>json.loads('''${json2}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.508" endtime="20230325 13:33:53.509"/>
+</kw>
+<for flavor="IN">
+<var>${key}</var>
+<value>@{json1_dict.keys()}</value>
+<iter>
+<var name="${key}"/>
+<kw name="Get From Dictionary" library="Collections">
+<var>${value1}</var>
+<arg>${json1_dict}</arg>
+<arg>${key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.510" endtime="20230325 13:33:53.511"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Key: ${key}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.511" endtime="20230325 13:33:53.511"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${value2}</var>
+<arg>${json2_dict}</arg>
+<arg>${key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.511" endtime="20230325 13:33:53.511"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${value1}' != '${value2}'</arg>
+<arg>Log</arg>
+<arg>Key '${key}' has different values</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230325 13:33:53.512" endtime="20230325 13:33:53.512"/>
+</kw>
+<status status="NOT RUN" starttime="20230325 13:33:53.510" endtime="20230325 13:33:53.512"/>
+</iter>
+<status status="NOT RUN" starttime="20230325 13:33:53.510" endtime="20230325 13:33:53.512"/>
+</for>
+<status status="FAIL" starttime="20230325 13:33:53.486" endtime="20230325 13:33:53.513">No keyword with name 'Create Session' found.</status>
+</test>
+<status status="FAIL" starttime="20230325 13:33:53.423" endtime="20230325 13:33:53.520"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230325 13:33:53.471" level="ERROR">Error in file 'c:\D Drive\Projects\Robot with Python\test.robot' on line 3: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\shrey\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_debug_adapter
+  C:\D Drive\Projects\Robot with Python
+  c:\Users\shrey\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src
+  c:\Users\shrey\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_ls\vendored
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\python39.zip
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\DLLs
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\lib
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e
+  c:\ProgramData\robocorp\ht
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\lib\site-packages
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\lib\site-packages\win32
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\lib\site-packages\win32\lib
+  c:\ProgramData\robocorp\ht\1d2bda5_b1f3c24_f8170f6e\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230325 11:36:35.146" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\shrey\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Create Dictionary" library="BuiltIn">
+<arg>key1=value1</arg>
+<arg>key2=value2</arg>
+<arg>key3=value3</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" starttime="20230325 11:36:36.362" endtime="20230325 11:36:36.364"/>
+</kw>
+<kw name=":FOR">
+<arg>${key}</arg>
+<arg>IN</arg>
+<arg>@{dict.keys()}</arg>
+<msg timestamp="20230325 11:36:36.364" level="FAIL">Support for the old FOR loop syntax has been removed. Replace ':FOR' with 'FOR', end the loop with 'END', and remove escaping backslashes.</msg>
+<status status="FAIL" starttime="20230325 11:36:36.364" endtime="20230325 11:36:36.364"/>
+</kw>
+<kw name="\">
+<arg>Log</arg>
+<arg>Key: ${key}, Value: ${dict.get(key)}</arg>
+<status status="NOT RUN" starttime="20230325 11:36:36.365" endtime="20230325 11:36:36.365"/>
+</kw>
+<status status="PASS" starttime="20230325 11:36:35.263" endtime="20230325 11:36:46.272"/>
+</kw>
+<status status="PASS" starttime="20230325 11:36:35.262" endtime="20230325 11:36:46.272"/>
+</test>
+<status status="PASS" starttime="20230325 11:36:35.150" endtime="20230325 11:36:46.274"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
